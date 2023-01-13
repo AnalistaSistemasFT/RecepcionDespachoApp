@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppRecepcionDespacho.Vistas.Almacen"
+             BackgroundColor="WhiteSmoke"
+             Visual="Material"
+             Title="Almacenes">
+    <ContentPage.Content>
+        <Frame Margin="10" Padding="10" BackgroundColor="White" CornerRadius="10" HasShadow="True" BorderColor="LightGray">
+            <Grid VerticalOptions="FillAndExpand" Padding="0,20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Row="0" Text="ELIJA UN ALMACEN" TextColor="Black" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand"
+                       FontAttributes="Bold"/>
+                <ListView Grid.Row="1" x:Name="ListaAlmacen" ItemTapped="ListaAlmacen_ItemTapped" SeparatorColor="#3470bf" 
+                          BackgroundColor="White" Margin="10" RowHeight="80">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout VerticalOptions="CenterAndExpand">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Almacen Id: " TextColor="Black"/>
+                                        <Label Text="{Binding AlmacenId}" TextColor="Black" HorizontalTextAlignment="Start"/>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Almacen: " TextColor="Black" HorizontalOptions="Start"/>
+                                        <Label Text="{Binding Nombre}" TextColor="Black"/>
+                                    </StackLayout>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+        </Frame>
+    </ContentPage.Content>
+</ContentPage>

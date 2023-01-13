@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppRecepcionDespacho.VistasDespacho.ListaPendientes"
+             Visual="Material"
+             Shell.NavBarHasShadow="True"
+             BackgroundColor="WhiteSmoke"
+             Title="Ordenes pendientes">
+    <ContentPage.Content>
+        <StackLayout x:Name="stkMain">
+            <Label x:Name="txtAviso" TextColor="Black" FontSize="22" HorizontalTextAlignment="Center"/>
+            <ListView x:Name="listPendientes" ItemTapped="listPendientes_ItemTapped" SeparatorColor="#3470bf" RowHeight="65">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="10" RowSpacing="0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="25"></RowDefinition>
+                                    <RowDefinition Height="25"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Row="0" Grid.Column="0" FontSize="16" TextColor="#000000" LineBreakMode="TailTruncation" VerticalTextAlignment="Center">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="Codigo: "/>
+                                            <Span Text="{Binding DespachoId}"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Label Grid.Row="0" Grid.Column="1" FontSize="16" TextColor="#000000" LineBreakMode="TailTruncation" VerticalTextAlignment="Center" HorizontalTextAlignment="End">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="Fecha: "/>
+                                            <Span Text="{Binding Fecha, StringFormat='{}{0:dd/MM/yyyy}'}"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Label Grid.Row="1" Grid.Column="0" FontSize="14" TextColor="#000000" VerticalTextAlignment="Center">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="Tipo despacho: "/>
+                                            <Span Text="{Binding Naturaleza}"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

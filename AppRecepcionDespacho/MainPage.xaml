@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppRecepcionDespacho.MainPage">
+    <Frame Margin="10" CornerRadius="10" HasShadow="True" BackgroundColor="White" BorderColor="LightGray">
+        <StackLayout>
+            <Label Text="Menu" FontSize="35" TextColor="Black" FontAttributes="Bold" HorizontalTextAlignment="Center" Margin="0, 20"/>
+            <Button x:Name="btnRecepcion" Text="Recepcion" BackgroundColor="Black" TextColor="White" FontSize="18" Padding="10" 
+                    Margin="20" Clicked="btnRecepcion_Clicked"/>
+            <Button x:Name="btnDespacho" Text="Despacho" BackgroundColor="Black" TextColor="White" FontSize="18" Padding="10" 
+                    Margin="20" Clicked="btnDespacho_Clicked"/>
+        </StackLayout>
+    </Frame>
+</ContentPage>

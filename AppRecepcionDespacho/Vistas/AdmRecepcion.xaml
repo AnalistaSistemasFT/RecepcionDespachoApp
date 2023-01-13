@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppRecepcionDespacho.Vistas.AdmRecepcion"
+              Visual="Material"
+             Shell.NavBarHasShadow="True"
+             BackgroundColor="WhiteSmoke"
+             Title="Registrar Anotacion">
+    <ContentPage.Content>
+        <ScrollView>
+            <Frame BackgroundColor="White" HasShadow="True" CornerRadius="8" BorderColor="LightGray" Margin="10">
+                <StackLayout Margin="10">
+                    <StackLayout>
+                        <Entry x:Name="txtRecepcion" TextColor="Black" FontSize="20" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" 
+                               IsEnabled="True" BackgroundColor="White" Placeholder="Anotación"/>
+                        <DatePicker x:Name="pickFecha" TextColor="Black" HorizontalOptions="FillAndExpand" VerticalOptions="Center" 
+                                    BackgroundColor="White" IsEnabled="True"/>
+                        <Picker x:Name="pickerProcedencia" Title="Procedencia" TitleColor="#3470bf" TextColor="Black" HorizontalOptions="FillAndExpand" BackgroundColor="White"
+                                    SelectedIndexChanged="pickerProcedencia_SelectedIndexChanged" VerticalTextAlignment="Center" ItemDisplayBinding="{Binding Nombre}"/>
+                        <Entry x:Name="txtusuario" TextColor="Black" FontSize="20" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" 
+                           IsEnabled="True" BackgroundColor="White" Placeholder="Usuario"/>
+                        <Entry x:Name="txtestado" TextColor="Black" FontSize="20" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" 
+                               IsEnabled="True" BackgroundColor="White" Placeholder="Estado"/>
+                        <Button x:Name="btnRegistrar" Text="REGISTRAR" Clicked="btnRegistrar_Clicked" Margin="15" Padding="10" HorizontalOptions="CenterAndExpand"/>
+                        <BoxView HeightRequest="2" BackgroundColor="#3470bf" HorizontalOptions="FillAndExpand" Margin="0,10"/>
+                    </StackLayout>
+                    <ListView  x:Name="ListaAnotacion" SeparatorColor="#3470bf" BackgroundColor="White" ItemTapped="listServicios_ItemTapped" Margin="10" RowHeight="80">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout>
+                                        <StackLayout  Orientation="Horizontal">
+                                            <Label Text="Anotacion: "/>
+                                            <Label Text="{Binding AnotacionId}"/>
+                                        </StackLayout>
+                                        <StackLayout  Orientation="Horizontal">
+                                            <Label Text="Procedencia: "/>
+                                            <Label Text="{Binding Propietario}" HorizontalTextAlignment="End"/>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </Frame>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

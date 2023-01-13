@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppRecepcionDespacho.Vistas.RegistroProductosRecp"
+             BackgroundColor="WhiteSmoke"
+             Shell.NavBarHasShadow="True"
+             Visual="Material"
+             Title="Registro de productos">
+    <ContentPage.Content>
+        <ScrollView>
+            <Frame BackgroundColor="White" Margin="10" CornerRadius="8" HasShadow="True" BorderColor="LightGray">
+                <StackLayout>
+                    <Label x:Name="lblAnotacion" TextColor="Black" VerticalTextAlignment="Center" FontSize="28" FontAttributes="Bold" Margin="0,0,0,20"/>
+                    <StackLayout Orientation="Horizontal" Margin="0,5">
+                        <Entry x:Name="txtBarcode" HorizontalOptions="FillAndExpand" BackgroundColor="White" TextColor="Black" TextChanged="txtBarcode_TextChanged"/>
+                        <Button x:Name="btnScan" Text="scanner" Clicked="btnScan_Clicked" HeightRequest="60" WidthRequest="120" CornerRadius="7"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Margin="0,5">
+                        <Entry x:Name="txtspacking" Placeholder="PackingList" TextColor="Black" FontSize="20" VerticalTextAlignment="Center" 
+                               HorizontalOptions="FillAndExpand" BackgroundColor="White" PlaceholderColor="Black"/>
+                        <Button x:Name="btnVer" Text="buscar" Clicked="btnVer_Clicked" CornerRadius="7" HeightRequest="60" WidthRequest="120"/>
+                    </StackLayout>
+                    <StackLayout>
+                        <Picker x:Name="pickerFabricante" Title="Fabricante" TitleColor="#3470bf" TextColor="Black" 
+                                HorizontalOptions="FillAndExpand" BackgroundColor="White" Margin="0,5"
+                            SelectedIndexChanged="pickerFabricante_SelectedIndexChanged" VerticalOptions="Center" ItemDisplayBinding="{Binding Nombre}"/>
+                        <Entry x:Name="txtItem" Placeholder="Item" TextColor="Black" BackgroundColor="White" Margin="0,5"
+                               HorizontalOptions="FillAndExpand" PlaceholderColor="Black"/>
+                        <Entry x:Name="txtDesc" Placeholder="Descripcion" TextColor="Black" BackgroundColor="White" Margin="0,5"
+                               HorizontalOptions="FillAndExpand" PlaceholderColor="Black"/>
+                        <StackLayout Orientation="Horizontal" Margin="0,5">
+                            <Entry x:Name="txtdpeso" Placeholder="Peso" TextColor="Black" BackgroundColor="White" 
+                               HorizontalOptions="FillAndExpand" Margin="0,0,20,0" PlaceholderColor="Black"/>
+                            <Entry x:Name="txtpieza" Placeholder="Pieza" TextColor="Black" BackgroundColor="White" 
+                               HorizontalOptions="FillAndExpand" Margin="0,0,20,0" PlaceholderColor="Black"/>
+                        </StackLayout>
+                        <Picker x:Name="pickerCelda" Title="Celda" TitleColor="#3470bf" TextColor="Black" HorizontalOptions="FillAndExpand" 
+                                BackgroundColor="White" Margin="0,5" SelectedIndexChanged="pickerCelda_SelectedIndexChanged_1" 
+                                VerticalOptions="Center" ItemDisplayBinding="{Binding CeldaId}"/>
+                        <Button x:Name="btnRec" Text="RECEPCIONAR" BackgroundColor="Black" TextColor="White" CornerRadius="7" 
+                                Clicked="btnRec_Clicked" Margin="0,20" HeightRequest="60"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Margin="0,10">
+                        <Label x:Name="lblCont" Text="PAQUETES: " TextColor="Black" VerticalTextAlignment="Center" FontSize="24" FontAttributes="Bold"/>
+                        <Label x:Name="lblcontador" Text="" TextColor="Black" VerticalTextAlignment="Center" FontSize="24" FontAttributes="Bold"/>
+                    </StackLayout>
+                    <ListView Grid.Row="1" x:Name="ListaItems" SeparatorColor="#3470bf" BackgroundColor="White" Margin="10" RowHeight="80">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="Paquete: " TextColor="Black"/>
+                                            <Label Text="{Binding CodigoBarra}" TextColor="Black" HorizontalTextAlignment="Start"/>
+                                            <Label Text="Peso: " TextColor="Black" HorizontalOptions="EndAndExpand"/>
+                                            <Label Text="{Binding Peso}" TextColor="Black"/>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="{Binding ItemId}" TextColor="Black"/>
+                                            <Label Text="{Binding Descripcion}" TextColor="Black"/>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </Frame>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

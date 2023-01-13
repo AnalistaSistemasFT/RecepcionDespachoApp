@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppRecepcionDespacho.VistasDespacho.LecturarDespacho"
+             Shell.NavBarHasShadow="True"
+             Visual="Material"
+             BackgroundColor="WhiteSmoke"
+             Title="Lecturar">
+    <ContentPage.Content>
+        <Grid Padding="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="60"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="0" x:Name="txtTitulo" FontAttributes="Bold" TextColor="Black" FontSize="28" VerticalTextAlignment="Center"/>
+            <Frame Grid.Row="1" HorizontalOptions="FillAndExpand" CornerRadius="7" HasShadow="True" BackgroundColor="White" Padding="10" Margin="0, 10">
+                <Grid x:Name="gridItem" BackgroundColor="White">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="70"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="70"/>
+                        <RowDefinition Height="70"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="100"/>
+                    </Grid.RowDefinitions>
+                    <Entry Grid.Row="0" x:Name="txtCodigo" Placeholder="Codigo" BackgroundColor="White" TextColor="Black" FontSize="17" HorizontalTextAlignment="Center"
+                           HorizontalOptions="FillAndExpand" Margin="5"/>
+                    <Editor Grid.Row="1" x:Name="txtDescripcion" Placeholder="Descripcion" BackgroundColor="White" TextColor="Black" FontSize="17"
+                           HorizontalOptions="FillAndExpand" Margin="5"/>
+                    <Entry Grid.Row="2" x:Name="txtPaqueteId" Placeholder="Paquete" BackgroundColor="White" TextColor="Black" FontSize="17" HorizontalTextAlignment="Center"
+                           HorizontalOptions="FillAndExpand" Margin="5"/>
+                    <StackLayout Grid.Row="3" Orientation="Horizontal">
+                        <Entry x:Name="txtPiezas" Placeholder="Piezas" BackgroundColor="White" TextColor="Black" FontSize="17" HorizontalTextAlignment="Center"
+                           HorizontalOptions="FillAndExpand" Margin="5"/>
+                        <Entry x:Name="txtPeso" Placeholder="Peso" BackgroundColor="White" TextColor="Black" FontSize="17" HorizontalTextAlignment="Center"
+                           HorizontalOptions="FillAndExpand" Margin="5"/>
+                    </StackLayout>
+                    <Button Grid.Row="4" x:Name="btnGuardar" BackgroundColor="Black" Text="Guardar" TextColor="White" CornerRadius="7"
+                            HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="20" Clicked="btnGuardar_Clicked"/>
+                    <StackLayout Grid.Row="5" Orientation="Horizontal">
+                        <StackLayout HorizontalOptions="FillAndExpand">
+                            <Label Text="Planificado" HorizontalTextAlignment="Center" FontAttributes="Bold" TextColor="Black"/>
+                            <Label x:Name="txtCantPlan" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
+                            <Label x:Name="txtPesoPlan" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
+                        </StackLayout>
+                        <StackLayout HorizontalOptions="FillAndExpand">
+                            <Label Text="Actual" HorizontalTextAlignment="Center" FontAttributes="Bold" TextColor="Black"/>
+                            <Label x:Name="txtCantAct" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
+                            <Label x:Name="txtPesoAct" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
+                        </StackLayout>
+                    </StackLayout>
+                </Grid>
+            </Frame>
+            <Button Grid.Row="2" x:Name="btnLecturar" Text="Lecturar" BackgroundColor="DarkGreen" TextColor="White" CornerRadius="5"
+                    HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Clicked="btnLecturar_Clicked" FontSize="20"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

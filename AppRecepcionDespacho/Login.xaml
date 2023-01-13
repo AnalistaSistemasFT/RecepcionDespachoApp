@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppRecepcionDespacho.Login"
+             NavigationPage.HasNavigationBar="False"
+             Visual="Material">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Frame Grid.Row="0" Margin="40,150,40,5" BackgroundColor="White" CornerRadius="7" HasShadow="True">
+                <Image Source="LogoFerrotodoSA1.png"/>
+            </Frame>
+            <StackLayout Grid.Row="1" VerticalOptions="CenterAndExpand" Padding="20, 10">
+                <Entry Text="" x:Name="entryUsuario" Placeholder="Usuario" PlaceholderColor="Black" BackgroundColor="White" HorizontalOptions="FillAndExpand" Margin="20"/>
+                <Entry Text="" x:Name="entryPassword" IsPassword="True" Placeholder="Contraseña" PlaceholderColor="Black" BackgroundColor="White" HorizontalOptions="FillAndExpand" Margin="20"/>
+                <Button x:Name="btnIngresar" Text="Ingresar" BackgroundColor="Black" TextColor="White" HorizontalOptions="FillAndExpand" 
+                    Margin="20" Padding="10" CornerRadius="7" FontSize="25" Clicked="btnIngresar_Clicked" />
+                <ActivityIndicator x:Name="indicator_login" Color="White" IsEnabled="True" Margin="20" 
+                            HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" HeightRequest="50"/>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
